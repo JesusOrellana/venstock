@@ -1,0 +1,238 @@
+.nav-izq
+{
+    width: 70%;
+    height: auto;
+}
+.nav-der
+{
+    width: 30%;
+    height: auto;
+}
+.perfil
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    background: white;
+    border: black solid;
+    position: relative;
+    right: -25%;
+}
+.perfil i
+{
+    position: relative;
+    left: -28px;
+    top: 10px;
+    font-size: 1.6em;
+}
+.perfil ul
+{
+    height:auto;
+    cursor: pointer;
+
+}
+
+.perfil ul:hover .menu-per
+{
+   display: block;
+
+}
+.menu-per
+{
+    width: 150px;
+    height: 160px;
+    position: relative;
+    top: 30px;
+    left: -90px;
+    display: none;
+    border-bottom: solid;
+    background: #EAEAEA;
+    text-align: center;
+}
+.menu-per li 
+{
+    display: inline-block;
+    width: 100%;
+    height: 45px;
+    list-style: none;
+    color: black;
+    padding: 10px;
+    margin-top: 5px;
+}
+.menu-per li:hover
+{
+    background: white;
+}
+#perfi
+{
+    text-decoration: none;
+    color: black;
+}
+.logo
+{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+.logo a
+{
+    width: 100%;
+    height: 100%;
+}
+.logo img
+{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    position: relative;
+    top: -10px;
+    z-index: auto;
+}
+.logo-txt
+{
+    display: inline-block;
+    width: 60%;
+    height: auto;
+    position: relative;
+    font-family: 'Lobster', cursive;
+}
+/*estilos section*/
+.sec-central
+{
+    width: 100%;
+    height: auto;
+}
+.menu-left
+{
+    width:100%;
+    height:auto;
+    text-align: center;
+}
+.cont-rigth
+{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.m-opcion
+{
+    width: 48%;
+    height: 50px;
+    display: inline-block;
+    padding: 10px;
+}
+#op-a
+{
+    text-decoration: none;
+    color: white;
+}
+.form-prod,.tabla-prod
+{
+    display: inline-block;
+    width: 80%;
+}
+/*estilos home producto*/
+.prod
+{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+.prod-uni
+{
+    width: 49%;
+    height: 140px;
+    background: #EAEAEA;
+    display: inline-block;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 15%;
+}
+.prod-uni button
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 15%;
+}
+/*estilos section bienvenida*/
+.men-bi
+{
+    display: inline-block;
+    background: #00ACFF;
+    position: relative;
+    width: 100%;
+    top: 50px;
+    padding: 20px;
+}
+/*estilos escritorio*/
+
+@media (min-width:500px) 
+{
+    .logo
+    {
+        width: 60px;
+    }
+    .d-izq
+    {
+        width: 45%;
+        font-size: 1.3em;
+    }
+    .nav-der
+    {
+        width: 30%;
+    }
+    .perfil
+    {
+        right: -45%;
+    }
+    .menu-per
+    {
+
+        left: -90px;
+
+    }
+    /*estilos section*/
+
+}
+@media (min-width:700px) 
+{
+
+
+    .nav-der
+    {
+        width: 30%;
+    }
+    .perfil
+    {
+        right: -65%;
+    }
+    .menu-per
+    {
+
+        left: -90px;
+
+    }
+    .m-opcion
+    {
+        width: 23%;
+    }
+}
+/*estilos escritorio*/
+@media (min-width:992px)
+{
+
+    .d-izq
+    {
+        padding-top: 50px;
+        width: 50%;
+        font-size: 2.2em;
+        color: black;
+        float: left;
+    }
+    .perfil
+    {
+        right: -75%;
+    }
+
+}

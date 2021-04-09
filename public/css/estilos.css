@@ -1,0 +1,274 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+header
+{
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+.body-base
+{
+    position: relative;
+    width: 100%;
+    height: 1000px;
+
+}
+.body-base img
+{
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.nav-izq
+{
+    width: 70%;
+    height: auto;
+}
+.nav-der
+{
+    width: 30%;
+    height: auto;
+}
+.nav-der button
+{
+    float: right;
+}
+.logo
+{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}
+.logo a
+{
+    width: 100%;
+    height: 100%;
+}
+.logo img
+{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    position: relative;
+    top: -10px;
+    z-index: auto;
+}
+.logo-txt
+{
+    display: inline-block;
+    width: 60%;
+    height: auto;
+    position: relative;
+    font-family: 'Lobster', cursive;
+}
+
+/*estilos section*/
+section
+{
+    width: 100%;
+    height: 1900px;
+    position: relative;
+    z-index: 0;
+}
+.separador
+{
+    width: 100%;
+    height: 100px;
+}
+.titulo
+{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    text-align: left;
+}
+.text-des
+{
+    width: 100%;
+    height: 615px;
+}
+.d-izq
+{
+    display: inline-block;
+    width: 65%;
+    height: 100%;
+    padding: 20px;
+    color: white;
+    text-align: left;
+    font-size: 1.2em;
+}
+.d-des
+{
+    display: inline-block;
+    width: 30%;
+    height: 100%;
+}
+.funciones
+{
+    width: 100%;
+    height: 500px;
+    padding:20px;
+    text-align: center;
+}
+.f-center
+{
+    width: 80%;
+    height: 100%;
+    display: inline-block;
+    padding-top: 20px;
+}
+.f-detalle
+{
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid black 1px;
+}
+.d-logo
+{
+    width: 100%;
+    height: 80px;
+
+}
+.dl-icono
+{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #00ACFF;
+}
+.dl-icono i
+{
+    font-size: 3em;
+    position: relative;
+    top: 16px;
+}
+.d-texto
+{
+    width: 100%;
+    padding: 10px;
+    text-align: justify;
+}
+/*estilos del footer*/
+footer
+{
+    position:relative;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+}
+.foo-center
+{
+    padding: 20px;
+    display: inline-block;
+    width: 90%;
+    color: white;
+
+}
+.redes-s
+{
+    width: 100%;
+    height: 60px;
+}
+.rs-caja
+{
+    display: inline-block;
+    padding: 20px;
+}
+/*estilos ajuste section */
+@media (min-width:500px)
+{
+    .logo
+    {
+        width: 60px;
+    }
+    section
+    {
+        height: 1650px;
+    }
+    .d-izq
+    {
+        width: 45%;
+        font-size: 1.3em;
+    }
+}
+@media (min-width:750px)
+{
+    section
+    {
+        height: 1550px;
+    }
+    .d-izq
+    {
+        font-size: 1.4em;
+    }
+}
+/*estilos escritorio*/
+@media (min-width:992px)
+{
+    section
+    {
+        height: 1250px;
+    }
+    .d-izq
+    {
+        padding-top: 50px;
+        width: 50%;
+        font-size: 2.2em;
+        color: black;
+        float: left;
+    }
+    .titulo
+    {
+        color: white;
+    }
+    .navbar-collapse
+    {
+        width: 132%;
+    }
+    .navbar-collapse ul
+    {
+        width: 100%;
+    } 
+    .navbar-collapse li
+    {
+        padding: 5px;
+    }
+    .sec-center
+    {
+        width: 100%;
+        text-align: center;
+    }
+    .funciones
+    {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 60px;
+        padding: 0;
+    }
+    .f-center
+    {
+        padding-top: 0;
+        width: 100%;
+        height: 300px;
+    }
+    .f-detalle
+    {
+        display: inline-block;
+        width: 300px;
+        height: 300px;
+        margin-bottom: 0;
+    }
+}
