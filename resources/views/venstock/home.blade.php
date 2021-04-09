@@ -68,4 +68,5 @@
        </div>
     @endif
 <div>Rama secundaria</div>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam unde officiis sed corporis nostrum soluta. Veniam a cum repellat, ut eveniet doloribus cumque maiores et totam quas atque. Excepturi, tempora.</p>
 @endsection
