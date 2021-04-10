@@ -66,10 +66,14 @@ header
     position: relative;
     font-family: 'Lobster', cursive;
 }
-
+nav .collapse
+{
+    font-family: 'Oswald', sans-serif;
+}
 /*estilos section*/
 section
 {
+    font-family: 'Oswald', sans-serif;
     width: 100%;
     height: 1900px;
     position: relative;
@@ -162,6 +166,7 @@ section
 /*estilos del footer*/
 footer
 {
+    font-family: 'Oswald', sans-serif;
     position:relative;
     width: 100%;
     height: 200px;

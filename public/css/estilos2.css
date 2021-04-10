@@ -1,42 +1,17 @@
 .nav-izq
 {
-    width: 70%;
+    width: 50%;
     height: auto;
 }
 .nav-der
 {
-    width: 30%;
+    width: 45%;
     height: auto;
-}
-.perfil
-{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
     text-align: center;
-    background: white;
-    border: black solid;
-    position: relative;
-    right: -25%;
 }
-.perfil i
+.form-sesion
 {
-    position: relative;
-    left: -28px;
-    top: 10px;
-    font-size: 1.6em;
-}
-.perfil ul
-{
-    height:auto;
-    cursor: pointer;
-
-}
-
-.perfil ul:hover .menu-per
-{
-   display: block;
-
+    text-align:center;
 }
 .menu-per
 {
@@ -149,7 +124,7 @@
     margin-bottom: 20px;
     border-radius: 15%;
 }
-.prod-uni button
+.prod-uni .pb-re
 {
     width: 100%;
     height: 100%;
@@ -180,17 +155,15 @@
     }
     .nav-der
     {
-        width: 30%;
+        width: 35%;
+        float:right;
+        text-align: right;
     }
     .perfil
     {
-        right: -45%;
-    }
-    .menu-per
-    {
-
-        left: -90px;
-
+       width:90%;
+       display: inline-block;
+       text-align:right;
     }
     /*estilos section*/
 
@@ -202,10 +175,13 @@
     .nav-der
     {
         width: 30%;
+        text-align:center;
     }
     .perfil
     {
-        right: -65%;
+       width:80%;
+       display: inline-block;
+       text-align:right;
     }
     .menu-per
     {
@@ -230,9 +206,15 @@
         color: black;
         float: left;
     }
+    .nav-der
+    {
+        width: 50%;
+        padding-right: 50px;
+        text-align:right;
+    }
     .perfil
     {
-        right: -75%;
+        width: 30%;
     }
 
 }

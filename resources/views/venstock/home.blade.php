@@ -17,14 +17,15 @@
        <div class="prod">
             @foreach($prod as $pr)
                 <div class="prod-uni">
-                    <button type="button" data-toggle="modal" data-target="#exampleModal-{{$pr->id}}">
+                    <button type="button" class="pb-re" data-toggle="modal" data-target="#exampleModal-{{$pr->id}}">
                         <div class="p-nombre">{{$pr->nombre}}</div>
                         <div class="cant-ini">vendido: {{$pr->stock_actual}}</div>
                         <div class="cant-ini">Stock base: {{$pr->stock}}</div>
                         <div class="pre_venta">Precio:${{$pr->pre_venta}}</div>
                     </button>
+
                 </div>
-                <div>hola</div>
+
                             <!-- Modal -->
                 <div class="modal fade" id="exampleModal-{{$pr->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -40,6 +41,7 @@
                                     <label class="col-12 bg-warning">¡No cuenta con stock disponible para hacer Rebaje
                                         a este producto!
                                     </label>
+                                    
                                 </div>
                             @else
                                 <form action = "{{ route('prod_rebaje')}}" method ="post" >
@@ -67,5 +69,4 @@
             @endforeach
        </div>
     @endif
-<div>Rama secundaria 111</div>
 @endsection

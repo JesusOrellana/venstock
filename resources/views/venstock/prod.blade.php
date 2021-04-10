@@ -51,19 +51,19 @@
     <table class="table">
         <thead>
             <tr>
-            <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Marca</th>
-            <th scope="col">Cantidad</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Consumo</th>
             </tr>
         </thead>
         <tbody>
             @foreach($prod as $pr)
                 <tr>
-                <th scope="row">{{$pr->id}}</th>
                 <td>{{$pr->nombre}}</td>
                 <td>{{$pr->marca}}</td>
                 <td>{{$pr->stock}}</td>
+                <td>{{$pr->stock_actual}}</td>
                 </tr>
             @endforeach
         </tbody>
