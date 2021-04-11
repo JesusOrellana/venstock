@@ -24,3 +24,4 @@ Route::post('/inventario/create',[HomeController::class, 'create'])->name('inven
 Route::get('/inventario', [ProdController::class, 'index'])->name('inventario');
 Route::post('/producto/create', [ProdController::class, 'create'])->name('prod_create');
 Route::post('/producto/rebaje', [ProdController::class, 'rebaje'])->name('prod_rebaje');
+Route::post('/producto/stock', [ProdController::class, 'stockUpdate'])->name('stock_update');

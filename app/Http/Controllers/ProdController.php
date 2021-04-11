@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\inventario;
 use App\Models\prod_inven;
-
+use App\Models\Rebaje;
 class ProdController extends Controller
 {
     public function __construct()
@@ -22,13 +22,18 @@ class ProdController extends Controller
         $id_inven = inventario::select('id')
         ->where('id_user',(int)auth()->user()->id)
         ->get();
+        $fecha = Carbon::now("America/Santiago");
         $prod = Producto::all()->where('id_inven',(int)$id_inven[0]->id);
-        return view('venstock.prod',['id_inven'=>$id_inven,'prod'=>$prod])->with('cont',$cont);
+        return view('venstock.prod',['id_inven'=>$id_inven,'prod'=>$prod,'fecha'=>$fecha])->with('cont',$cont);
     }
     public function create(Request $request)
     {
         $prod = $request->except('_token');
         Producto::insert($prod);
+        $pr = Producto::select('id')->where('created_at',$prod['created_at'])->get();
+        $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$pr[0]->id,'stock'=>$prod['stock'],'rebaje'=>$prod['stock_actual'],
+        'movimiento'=>true, 'created_at'=>$prod['created_at']);
+        Rebaje::insert($rebaje);
         return redirect('/inventario');
 
     }
@@ -39,5 +44,9 @@ class ProdController extends Controller
         Producto::where('id',$request->id)->update(['stock_actual'=>$cant]);
         return redirect('/home');
     }
-    
+    public function stockUpdate(Request $request)
+    {
+        Producto::where('id',$request->id)->update(['stock'=>$request->stock,'stock_actual'=>0]);
+        return redirect('/home');
+    }
 }

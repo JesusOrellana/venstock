@@ -37,7 +37,7 @@
                         <a class="nav-link" href="#">¿Qué es VenStock?</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#servicios">Servicios</a>
+                        <a class="nav-link" href="/#servicios">Servicios</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">iniciar sesión</a>

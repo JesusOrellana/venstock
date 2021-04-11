@@ -1,3 +1,10 @@
+button svg
+{
+    width:30px;
+    height:30px;
+    margin-right: 5px;
+}
+
 .nav-izq
 {
     width: 50%;
@@ -5,7 +12,7 @@
 }
 .nav-der
 {
-    width: 45%;
+    width: 50%;
     height: auto;
     text-align: center;
 }
@@ -102,10 +109,15 @@
     text-decoration: none;
     color: white;
 }
-.form-prod,.tabla-prod
+.form-prod
 {
+
     display: inline-block;
     width: 80%;
+}
+.tabla-prod
+{
+    width:100%;
 }
 /*estilos home producto*/
 .prod
@@ -124,7 +136,13 @@
     margin-bottom: 20px;
     border-radius: 15%;
 }
-.prod-uni .pb-re
+.prod_uni svg
+{
+    display: inline-block;
+    position: relative;
+    top: 50px;
+}
+.pb-re
 {
     width: 100%;
     height: 100%;

@@ -23,7 +23,6 @@
                         <div class="cant-ini">Stock base: {{$pr->stock}}</div>
                         <div class="pre_venta">Precio:${{$pr->pre_venta}}</div>
                     </button>
-
                 </div>
 
                             <!-- Modal -->
@@ -41,7 +40,19 @@
                                     <label class="col-12 bg-warning">¡No cuenta con stock disponible para hacer Rebaje
                                         a este producto!
                                     </label>
-                                    
+                                    <form action = "{{ route('stock_update')}}" method ="post" >
+                                        @csrf
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1" class="col-12">Actualizar Stock</label>
+                                                <input type="text" name="stock" id = "stock" class="form-control">
+                                                <input type="text" name="id" id = "id" value="{{$pr->id}}" style="display:none">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                                        </div>
+                                    </form>
                                 </div>
                             @else
                                 <form action = "{{ route('prod_rebaje')}}" method ="post" >
