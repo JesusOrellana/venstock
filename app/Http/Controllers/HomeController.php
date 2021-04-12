@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\inventario;
@@ -26,12 +26,13 @@ class HomeController extends Controller
     {
         $cont = inventario::select('id')->where('id_user',(int)auth()->user()->id)->count();
         $prod =Producto::select('productos.id','productos.nombre','productos.stock',
-        'productos.stock_actual','productos.pre_venta','productos.pre_compra','productos.marca')
+        'productos.stock_actual','productos.pre_venta','productos.pre_compra','productos.marca','productos.id_inven')
         ->join('inventarios','productos.id_inven','=','inventarios.id')
         ->where('inventarios.id_user',(int)auth()->user()->id)
         ->orderByDesc('stock_actual')
         ->get();
-        return view('venstock.home',['prod'=>$prod])->with('cont',$cont);
+        $fecha = Carbon::now("America/Santiago");
+        return view('venstock.home',['prod'=>$prod,'fecha'=>$fecha])->with('cont',$cont);
     }
 
     public function create(Request $request)

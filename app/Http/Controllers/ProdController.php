@@ -30,23 +30,31 @@ class ProdController extends Controller
     {
         $prod = $request->except('_token');
         Producto::insert($prod);
-        $pr = Producto::select('id')->where('created_at',$prod['created_at'])->get();
+        $pr = Producto::select('id')->where('created_at',$prod['created_at'])->where('id_inven',$prod['id_inven'])->get();
         $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$pr[0]->id,'stock'=>$prod['stock'],'rebaje'=>$prod['stock_actual'],
-        'movimiento'=>true, 'created_at'=>$prod['created_at']);
+        'movimiento'=>false, 'created_at'=>$prod['created_at']);
         Rebaje::insert($rebaje);
         return redirect('/inventario');
 
     }
     public function rebaje(Request $request)
     {
-        $cant=Producto::select('stock_actual')->where('id',$request->id)->get();
-        $cant = $cant[0]->stock_actual + $request->stock_actual;
-        Producto::where('id',$request->id)->update(['stock_actual'=>$cant]);
+        $cant=Producto::select('stock_actual','stock')->where('id',$request->id_prod)->get();
+        $cant1 = $cant[0]->stock_actual + $request->stock_actual;
+        Producto::where('id',$request->id_prod)->update(['stock_actual'=>$cant1]);
+        $fecha = Carbon::now("America/Santiago");
+        $cant1 = ($cant[0]->stock - $cant[0]->stock_actual) - $request->stock_actual;
+        $rebaje = array('id_inven'=>$request->id_inven,'id_prod'=>$request->id_prod,'stock'=>$cant1,'rebaje'=>$request->stock_actual,
+        'movimiento'=>true, 'created_at'=>$fecha);
+        Rebaje::insert($rebaje);
         return redirect('/home');
     }
     public function stockUpdate(Request $request)
     {
-        Producto::where('id',$request->id)->update(['stock'=>$request->stock,'stock_actual'=>0]);
+
+        Producto::where('id',$request->id_prod)->update(['stock'=>$request->stock,'stock_actual'=>0]);
+        $rebaje = $request->except('_token');
+        Rebaje::insert($rebaje);
         return redirect('/home');
     }
 }

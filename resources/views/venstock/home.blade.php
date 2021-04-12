@@ -17,12 +17,17 @@
        <div class="prod">
             @foreach($prod as $pr)
                 <div class="prod-uni">
-                    <button type="button" class="pb-re" data-toggle="modal" data-target="#exampleModal-{{$pr->id}}">
-                        <div class="p-nombre">{{$pr->nombre}}</div>
-                        <div class="cant-ini">vendido: {{$pr->stock_actual}}</div>
-                        <div class="cant-ini">Stock base: {{$pr->stock}}</div>
-                        <div class="pre_venta">Precio:${{$pr->pre_venta}}</div>
-                    </button>
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$pr->nombre}}</h5>
+                            <p class="card-text">vendido: {{$pr->stock_actual}}</p>
+                            <p class="card-text">Stock base: {{$pr->stock}}</p>
+                            <p class="card-text">Precio:${{$pr->pre_venta}}</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{$pr->id}}">
+                            Rebajar
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                             <!-- Modal -->
@@ -46,7 +51,11 @@
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1" class="col-12">Actualizar Stock</label>
                                                 <input type="text" name="stock" id = "stock" class="form-control">
-                                                <input type="text" name="id" id = "id" value="{{$pr->id}}" style="display:none">
+                                                <input type="text" name="rebaje" id = "rebaje" class="form-control" style="display:none" value = "0">
+                                                <input type="text" name="id_inven" id = "id-inven" value="{{$pr->id_inven}}" style="display:none">
+                                                <input type="text" name="id_prod" id = "id_prod" value="{{$pr->id}}" style="display:none">
+                                                <input type="text" value="{{$fecha}}" name="created_at" id="created_at" style="display:none">
+                                                <input type="text" value="false" name="movimiento" id="movimiento" style="display:none">
                                             </div>
                                         </div>
                                         <div class="modal-footer">
@@ -60,7 +69,9 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1" class="col-12">¿cuantos productos desea rebajar?</label>
-                                            <input type="text" name="id" id = "id" value="{{$pr->id}}" style="display:none">
+                                            <input type="text" name="stock" id = "stock" class="form-control" style="display:none">
+                                            <input type="text" name="id_prod" id = "id_prod" value="{{$pr->id}}" style="display:none">
+                                            <input type="text" name="id_inven" id = "id-inven" value="{{$pr->id_inven}}" style="display:none">
                                             <select class="form-select col-6" aria-label="Default select example" name ="stock_actual" id ="stock_actual">
 
                                                 @for($i = 1; $i <= ($pr->stock - $pr->stock_actual) ;$i++)
