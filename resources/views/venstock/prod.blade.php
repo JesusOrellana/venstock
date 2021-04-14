@@ -74,18 +74,18 @@
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
             <div class="accordion-body">
                 <div class="tabla-prod">
-                    <table class="table">
+                    <table class="table table-dark">
                         <thead>
                             <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Marca</th>
-                            <th scope="col">Stock</th>
+                            <th scope="col">Ingreso</th>
                             <th scope="col">Rebaje</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($prod as $pr)
-                                <tr>
+                                <tr class="table-active">
                                 <td>{{$pr->nombre}}</td>
                                 <td>{{$pr->marca}}</td>
                                 <td>{{$pr->stock}}</td>

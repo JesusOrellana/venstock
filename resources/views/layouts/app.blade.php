@@ -10,19 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b48ddbb3b7.js" crossorigin="anonymous"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class = "body-base">
         <img src="{{asset('img/fondo.jpg')}}" alt="">
         <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light">
             <div class="nav-izq">
                 <div class="logo">
-                    <a href="#"><img src="{{asset('img/logo.png')}}" alt="VenStock"></a>
-                </div>
-                <div class="logo-txt">
-                    <h1>VenStock</h1>
+                    <a href="#"><img src="{{asset('img/logo2.png')}}" alt="Conexist"></a>
                 </div>
             </div>
             <div class="nav-der">
@@ -34,7 +31,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">¿Qué es VenStock?</a>
+                        <a class="nav-link" href="#">¿Qué es Conexist?</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/#servicios">Servicios</a>
@@ -51,7 +48,6 @@
         </header>
 
         <section>
-            <div class="separador"></div>
             @yield('content')
         </section>
         <footer class="bg-dark">    

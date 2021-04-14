@@ -17,12 +17,10 @@
        <div class="prod">
             @foreach($prod as $pr)
                 <div class="prod-uni">
-                    <div class="card text-center">
+                    <div class="card border-light mb-3 text-center">
+                        <div class="card-header">{{$pr->nombre}}</div>
                         <div class="card-body">
-                            <h5 class="card-title">{{$pr->nombre}}</h5>
-                            <p class="card-text">vendido: {{$pr->stock_actual}}</p>
-                            <p class="card-text">Stock base: {{$pr->stock}}</p>
-                            <p class="card-text">Precio:${{$pr->pre_venta}}</p>
+                            <p class="card-text">Stock: {{$pr->stock - $pr->stock_actual }}</p>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{$pr->id}}">
                             Rebajar
                             </button>

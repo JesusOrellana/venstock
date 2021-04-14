@@ -3,7 +3,11 @@
 @section('content')
 <div class="sec-center">
     <div class="titulo">
-        <h2>Gestiona el stock de tus ventas de manera simple y eficaz.</h2>
+        <h2>
+            <strong>
+                Gestiona el stock de tus ventas de manera simple y eficaz.
+            </strong> 
+        </h2>
     </div>
     <div class="text-des">
         <div class="d-izq">
