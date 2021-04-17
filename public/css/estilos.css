@@ -11,7 +11,7 @@ header
 {
     position: relative;
     width: 100%;
-    height: 1000px;
+    height: 800px;
 
 }
 .body-base img
@@ -62,14 +62,7 @@ section
 {
     font-family: 'Oswald', sans-serif;
     width: 100%;
-    height: 1800px;
-    position: relative;
-    z-index: 0;
-}
-.separador
-{
-    width: 100%;
-    height: 100px;
+    height: auto;
 }
 .titulo
 {
@@ -81,29 +74,30 @@ section
 .text-des
 {
     width: 100%;
-    height: 615px;
+    text-align: center;
 }
 .d-izq
 {
     display: inline-block;
-    width: 65%;
-    height: 100%;
-    padding: 20px;
+    width: 100%;
+    padding:30px;
+    height:400px;
     color: white;
     text-align: left;
     font-size: 1.2em;
+    background:white;
+    color: black;
+    filter: opacity(90%);
 }
-.d-des
+.d-izq p
 {
-    display: inline-block;
-    width: 30%;
-    height: 100%;
+    color: black;
+    filter: opacity(100%);
 }
 .funciones
 {
     width: 100%;
-    height: 500px;
-    padding:20px;
+    height: auto;
     text-align: center;
 }
 .f-center
@@ -115,7 +109,7 @@ section
 }
 .f-detalle
 {
-    width: 80%;
+    width: 90%;
     height: auto;
     display: inline-block;
     margin-bottom: 20px;
@@ -177,6 +171,12 @@ footer
     display: inline-block;
     padding: 20px;
 }
+/*estilos login*/
+.log-center
+{
+    width: 100%;
+    height:120px;
+}
 /*estilos ajuste section */
 @media (min-width:500px)
 {
@@ -185,22 +185,22 @@ footer
         
         width: 10%;
     }
-    section
-    {
-        height: 1650px;
-    }
     .d-izq
     {
-        width: 45%;
+        width: 60%;
         font-size: 1.3em;
+        background:none;
+        text-align: justify;
+        float: left;
+    }
+    .d-izq p
+    {
+        color:white;
     }
 }
 @media (min-width:750px)
 {
-    section
-    {
-        height: 1550px;
-    }
+
     .d-izq
     {
         font-size: 1.4em;
@@ -212,10 +212,6 @@ footer
     header
     {
         padding-top: 20px;
-    }
-    section
-    {
-        height: 1250px;
     }
     .d-izq
     {

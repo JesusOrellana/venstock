@@ -16,7 +16,6 @@
             Todo esto con una plataforma a tu dispocisión 24/7.
             </p>
         </div>
-        <div class="d-der"></div>
     </div>
     <div class="funciones" id="servicios">
         <div class="f-center">

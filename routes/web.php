@@ -15,7 +15,7 @@ use App\Http\Controllers\ProdController;
 |
 */
 
-Route::get('/',[InicioController::class, 'index']);
+Route::get('/',[InicioController::class, 'index'])->name('inicio');
 
 Auth::routes();
 
@@ -25,3 +25,6 @@ Route::get('/inventario', [ProdController::class, 'index'])->name('inventario');
 Route::post('/producto/create', [ProdController::class, 'create'])->name('prod_create');
 Route::post('/producto/rebaje', [ProdController::class, 'rebaje'])->name('prod_rebaje');
 Route::post('/producto/stock', [ProdController::class, 'stockUpdate'])->name('stock_update');
+Route::get('/producto/edit/{id}', [ProdController::class, 'edit'])->name('edit_prod');
+Route::post('/producto/update', [ProdController::class, 'update'])->name('prod_update');
+Route::get('/producto/{id}/delete', [ProdController::class, 'delete'])->name('prod_delete');

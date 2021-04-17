@@ -24,14 +24,14 @@ class ProdController extends Controller
         ->get();
         $fecha = Carbon::now("America/Santiago");
         $prod = Producto::all()->where('id_inven',(int)$id_inven[0]->id);
-        return view('venstock.prod',['id_inven'=>$id_inven,'prod'=>$prod,'fecha'=>$fecha])->with('cont',$cont);
+        return view('producto.prod',['id_inven'=>$id_inven,'prod'=>$prod,'fecha'=>$fecha,'stock'=>''])->with('cont',$cont);
     }
     public function create(Request $request)
     {
         $prod = $request->except('_token');
         Producto::insert($prod);
         $pr = Producto::select('id')->where('created_at',$prod['created_at'])->where('id_inven',$prod['id_inven'])->get();
-        $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$pr[0]->id,'stock'=>$prod['stock'],'rebaje'=>$prod['stock_actual'],
+        $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$pr[0]->id,'stock'=>$prod['stock'],'rebaje'=>0,
         'movimiento'=>false, 'created_at'=>$prod['created_at']);
         Rebaje::insert($rebaje);
         return redirect('/inventario');
@@ -56,5 +56,30 @@ class ProdController extends Controller
         $rebaje = $request->except('_token');
         Rebaje::insert($rebaje);
         return redirect('/home');
+    }
+    public function update(Request $request)
+    {
+        $prod = $request->except('_token','id');
+        Producto::where('id',$request->id)->update($prod);
+        $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$request->id,'stock'=>$prod['stock'],'rebaje'=>0,
+        'movimiento'=>false, 'created_at'=>$prod['created_at']);
+        Rebaje::insert($rebaje);
+        return redirect('/inventario');
+    }
+    public function edit($id)
+    {
+        $id_inven = inventario::select('id')
+        ->where('id_user',(int)auth()->user()->id)
+        ->get();
+        $fecha = Carbon::now("America/Santiago");
+        $prod = Producto::find($id);
+        $stock = $prod->stock - $prod->stock_actual; 
+        return view('producto.edit',['id_inven'=>$id_inven,'pr'=>$prod,'fecha'=>$fecha,'stock'=>$stock]);
+    }
+
+    public function delete($id)
+    {
+        Producto::destroy($id);
+        return redirect('/inventario');
     }
 }

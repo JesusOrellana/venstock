@@ -19,41 +19,9 @@
                 <div class="form-prod" >
                     <form method="POST" action="{{ route('prod_create') }}" enctype="multipart/form-data" onSubmit="return validarForm()">
                         @csrf
+                        @include("producto.form")
                         <div class="form-group row">
-                            <label for="nombre" class="col-md-4 col-form-label text-md-right">Producto</label>
-                            <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control " name="nombre" autofocus placeholder="Nombre Producto">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="marca" class="col-md-4 col-form-label text-md-right">Marca</label>
-                            <div class="col-md-6">
-                                <input id="marca" type="text" class="form-control " name="marca" placeholder="Marca Producto">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="stock" class="col-md-4 col-form-label text-md-right">Stock</label>
-                            <div class="col-md-6">
-                                <input id="stock" type="text" class="form-control " name="stock" placeholder="N° de Productos">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="pre_compra" class="col-md-4 col-form-label text-md-right">Precio Compra</label>
-                            <div class="col-md-6">
-                                <input id="pre_compra" type="text" class="form-control " name="pre_compra" placeholder="Precio unitario de compra (Con IVA)">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="pre_venta" class="col-md-4 col-form-label text-md-right">Precio Venta</label>
-                            <div class="col-md-6">
-                                <input id="pre_venta" type="text" class="form-control " name="pre_venta" placeholder="Precio unitario de venta (Con IVA)" value="">
-                            </div>
-                        </div>
-                        <input type="text" value="{{$fecha}}" name="created_at" id="created_at" style="display:none">
-                        <input type="text" name = "stock_actual" id= "stock_actual" style="display:none" value = "0">
-                        <input type="text" name = "id_inven" id= "id_inven" style="display:none" value = "{{$id_inven[0]->id}}">
-                        <div class="form-group row">
-                            <div class="col-md-6">
+                            <div class="col-md-12 p-4">
                                 <input type="submit" value="Crear Producto" class = "btn btn-primary">
                             </div>
                         </div>
@@ -78,18 +46,33 @@
                         <thead>
                             <tr>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Marca</th>
+                            <th scope="col" class="op-disa">Marca</th>
                             <th scope="col">Ingreso</th>
-                            <th scope="col">Rebaje</th>
+                            <th scope="col" class="op-disa">Rebaje</th>
+                            <th scope="col">Acción</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($prod as $pr)
                                 <tr class="table-active">
                                 <td>{{$pr->nombre}}</td>
-                                <td>{{$pr->marca}}</td>
+                                <td class="op-disa">{{$pr->marca}}</td>
                                 <td>{{$pr->stock}}</td>
-                                <td>{{$pr->stock_actual}}</td>
+                                <td class="op-disa">{{$pr->stock_actual}}</td>
+                                <td>
+                                    <a href="/producto/edit/{{$pr->id}}" class="btn-sm btn-success">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                        </svg>
+                                    </a> -
+                                    <button class="btn-sm btn-danger" data-bs-toggle="modal" href="#modal" role="button" data
+                                    onclick="deleteProd('{{$pr->id}}','{{$pr->nombre}}')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                        </svg>
+                                    </button>
+                                </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -98,5 +81,18 @@
             </div>
         </div>
     </div>
-    <!-- Button trigger modal -->
+    <div class="modal fade p-4" id="modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <h6 class="nom-delete"></h6>
+                <p class="bg-danger p-3" style="color:white">¡¡Al eliminar este producto se borraran todos los registros
+                    asociados al el!!
+                </p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
+                    <a href="" id="prod-delete" class="btn btn-warning">Borrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
