@@ -31,7 +31,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">¿Qué es Conexist?</a>
+                        <a class="nav-link" href="{{route('inicio')}}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Documentación</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/#servicios">Servicios</a>
@@ -57,7 +60,7 @@
                     <div class="rs-caja"><i class="fab fa-facebook"></i></div>
                     <div class="rs-caja"><i class="fab fa-twitter"></i></div>
                 </div>
-                <p>venstocksoftwarech@gmail.com</p>
+                <p>conexistsoftware@gmail.com</p>
                 <a href="http://www.freepik.com"> imagen central diseñada por upklyak / Freepik </a>
             </div>
         </footer>

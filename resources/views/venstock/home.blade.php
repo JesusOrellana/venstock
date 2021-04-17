@@ -18,7 +18,7 @@
             @foreach($prod as $pr)
                 <div class="prod-uni">
                     <div class="card border-light mb-3 text-center">
-                        <div class="card-header">{{$pr->nombre}}</div>
+                        <div class="card-header"><b>{{$pr->nombre}}</b></div>
                         <div class="card-body">
                             <p class="card-text">Stock: {{$pr->stock - $pr->stock_actual }}</p>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{$pr->id}}">

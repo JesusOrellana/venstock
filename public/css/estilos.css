@@ -205,6 +205,11 @@ footer
     {
         font-size: 1.4em;
     }
+    .f-detalle
+    {
+        width: 500px;
+        padding:0 20px 0 20px;
+    }
 }
 /*estilos escritorio*/
 @media (min-width:992px)
@@ -256,6 +261,8 @@ footer
         position: relative;
         top: 60px;
         padding: 0;
+
+        margin-bottom:30px;
     }
     .f-center
     {
@@ -267,7 +274,8 @@ footer
     {
         display: inline-block;
         width: 300px;
-        height: 300px;
+        height: 230px;
         margin-bottom: 0;
+        padding:10px;
     }
 }

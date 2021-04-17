@@ -63,7 +63,7 @@
                     <a id="op-a" href="{{route('home')}}">Rebaje</a>
                 </div>
                 <div class="m-opcion">
-                    <a id="op-a" href="">Graficos</a>
+                    <a id="op-a" href="{{route('graficos')}}">Estadisticas</a>
                 </div>
                 <div class="m-opcion">
                     <a id="op-a" href="">Ventas</a>
@@ -74,8 +74,10 @@
             </section>
         </div>
     </section>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.1.0/dist/chart.min.js"></script>
     <script src="{{asset('js/prod.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{{asset('js/graficos.js')}}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

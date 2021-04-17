@@ -4,3 +4,5 @@ function deleteProd(id,nombre)
     $('.nom-delete').html("¿Seguro desea eliminar el Producto: " + nombre+"?");
     $('#prod-delete').prop('href','/producto/'+id+'/delete' );
 }
+
+

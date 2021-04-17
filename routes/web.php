@@ -28,3 +28,5 @@ Route::post('/producto/stock', [ProdController::class, 'stockUpdate'])->name('st
 Route::get('/producto/edit/{id}', [ProdController::class, 'edit'])->name('edit_prod');
 Route::post('/producto/update', [ProdController::class, 'update'])->name('prod_update');
 Route::get('/producto/{id}/delete', [ProdController::class, 'delete'])->name('prod_delete');
+Route::get('/producto/graficos', [HomeController::class, 'graficos'])->name('graficos');
+Route::post('/producto/data', [ProdController::class, 'data'])->name('prod_data');

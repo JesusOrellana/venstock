@@ -41,4 +41,9 @@ class HomeController extends Controller
         inventario::insert($inve);
         return redirect('/inventario');
     }
+
+    public function graficos()
+    {
+        return view('venstock.graficos');
+    }
 }

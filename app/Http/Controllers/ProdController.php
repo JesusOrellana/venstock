@@ -80,6 +80,12 @@ class ProdController extends Controller
     public function delete($id)
     {
         Producto::destroy($id);
+        Rebaje::where('id_prod',$id)->delete();
         return redirect('/inventario');
+    }
+
+    public function data(Request $request)
+    {
+       return response(json_encode(Producto::all()),200)->header('content-type','text/plain');
     }
 }
