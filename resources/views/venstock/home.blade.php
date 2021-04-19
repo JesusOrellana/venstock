@@ -3,7 +3,7 @@
 @section('content')
     @if($cont == 0)
     <div class="men-bi">
-        <p>¡Bienvenido {{auth()->user()->name}}! nos alegra que puedas utilizar nuestro sistema y que puedas sacarle el mayor
+        <p>¡Bienvenid@ {{auth()->user()->name}}! nos alegra que puedas utilizar nuestro sistema y que puedas sacarle el mayor
             veneficio posible, para comenzar debes crear un inventario de productos y empezar a gestionar el stock de tu negocio de 
             manera digital.
         </p>
@@ -18,6 +18,9 @@
             @foreach($prod as $pr)
                 <div class="prod-uni">
                     <div class="card border-light mb-3 text-center">
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width:{{($pr->stock_actual / $pr->stock)*100}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{round(($pr->stock_actual / $pr->stock)*100)}}%</div>
+                        </div>
                         <div class="card-header"><b>{{$pr->nombre}}</b></div>
                         <div class="card-body">
                             <p class="card-text">Stock: {{$pr->stock - $pr->stock_actual }}</p>

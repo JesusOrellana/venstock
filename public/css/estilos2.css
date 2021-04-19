@@ -167,6 +167,13 @@ h2 svg , .bt-sv svg
     top: 50px;
     padding: 20px;
 }
+/*estilos vista graficos*/
+.graf-prod
+{
+    width: 100%;
+    height: 100%;
+    background:#FAFAFA;
+}
 /*estilos escritorio*/
 
 @media (min-width:500px) 
@@ -246,6 +253,10 @@ h2 svg , .bt-sv svg
     {
         width: 30%;
     }
-
+    .graf-prod
+    {
+        width:48%;
+        display: inline-block;
+    }
 
 }

@@ -5,7 +5,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Producto;
 use App\Models\inventario;
-use App\Models\prod_inven;
+use Illuminate\Database\QueryException;
 use App\Models\Rebaje;
 class ProdController extends Controller
 {
@@ -16,25 +16,21 @@ class ProdController extends Controller
 
     public function index()
     {
-        $cont = Producto::select('id')
-        ->join('inventarios','productos.id_inven','=','inventarios.id')
-        ->where('inventarios.id_user',(int)auth()->user()->id)->count();
-        $id_inven = inventario::select('id')
-        ->where('id_user',(int)auth()->user()->id)
-        ->get();
-        $fecha = Carbon::now("America/Santiago");
-        $prod = Producto::all()->where('id_inven',(int)$id_inven[0]->id);
-        return view('producto.prod',['id_inven'=>$id_inven,'prod'=>$prod,'fecha'=>$fecha,'stock'=>''])->with('cont',$cont);
+        return $this->base('sin mensaje');
     }
     public function create(Request $request)
     {
-        $prod = $request->except('_token');
-        Producto::insert($prod);
-        $pr = Producto::select('id')->where('created_at',$prod['created_at'])->where('id_inven',$prod['id_inven'])->get();
-        $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$pr[0]->id,'stock'=>$prod['stock'],'rebaje'=>0,
-        'movimiento'=>false, 'created_at'=>$prod['created_at']);
-        Rebaje::insert($rebaje);
-        return redirect('/inventario');
+        try {
+            $prod = $request->except('_token');
+            Producto::insert($prod);
+            $pr = Producto::select('id')->where('created_at',$prod['created_at'])->where('id_inven',$prod['id_inven'])->get();
+            $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$pr[0]->id,'stock'=>$prod['stock'],'rebaje'=>0,
+            'movimiento'=>false, 'created_at'=>$prod['created_at']);
+            Rebaje::insert($rebaje);
+            return $this->base('m1');
+        } catch (QueryException) {
+            return $this->base('m2');
+        }
 
     }
     public function rebaje(Request $request)
@@ -86,6 +82,25 @@ class ProdController extends Controller
 
     public function data(Request $request)
     {
-       return response(json_encode(Producto::all()),200)->header('content-type','text/plain');
+       $id_inven = inventario::select('id')
+       ->where('id_user',(int)auth()->user()->id)
+       ->get();
+       $prod = Producto::select('nombre','stock_actual')
+       ->where('id_inven',$id_inven[0]->id)
+       ->orderByDesc('stock_actual')->take(6)->get();
+       return response(json_encode($prod),200)->header('content-type','text/plain');
+    }
+
+    public function base($mensaje)
+    {
+        $cont = Producto::select('id')
+        ->join('inventarios','productos.id_inven','=','inventarios.id')
+        ->where('inventarios.id_user',(int)auth()->user()->id)->count();
+        $id_inven = inventario::select('id')
+        ->where('id_user',(int)auth()->user()->id)
+        ->get();
+        $fecha = Carbon::now("America/Santiago");
+        $prod = Producto::all()->where('id_inven',(int)$id_inven[0]->id);
+        return view('producto.prod',['id_inven'=>$id_inven,'prod'=>$prod,'fecha'=>$fecha,'stock'=>'','prod_exi'=>$mensaje])->with('cont',$cont);
     }
 }

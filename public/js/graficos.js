@@ -13,9 +13,10 @@ $(document).ready(function(){
         var lista = JSON.parse(res);
         for (var index = 0; index < lista.length; index++) {
             nombres.push(lista[index].nombre);
-            stock.push(lista[index].stock - lista[index].stock_actual);
+            stock.push(lista[index].stock_actual);
         }
         generarGrafico();
+        generarGraficoRadar();
     })
 
     function generarGrafico(){
@@ -25,7 +26,7 @@ $(document).ready(function(){
         data: {
             labels: nombres,
             datasets: [{
-                label: '# of Votes',
+                label: 'Rebaje Producto',
                 data: stock,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -53,6 +54,29 @@ $(document).ready(function(){
                 }
             }
         }
+    });
+
+    }
+
+    function generarGraficoRadar()
+    {
+        var ctx = document.getElementById('myChartRadar').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'polarArea',
+        data: {
+            labels: nombres,
+            datasets: [{
+              label: 'My First Dataset',
+              data: stock,
+              backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(75, 192, 192)',
+                'rgb(255, 205, 86)',
+                'rgb(201, 203, 207)',
+                'rgb(54, 162, 235)'
+              ]
+            }]
+          }
     });
     }
 })
