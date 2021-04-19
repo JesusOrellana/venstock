@@ -29,7 +29,7 @@ class ProdController extends Controller
             Rebaje::insert($rebaje);
             return $this->base('m1');
         } catch (QueryException) {
-            return $this->base('m2');
+            return redirect('/producto/edit/'.$pr[0]->id);
         }
 
     }
@@ -55,12 +55,16 @@ class ProdController extends Controller
     }
     public function update(Request $request)
     {
-        $prod = $request->except('_token','id');
-        Producto::where('id',$request->id)->update($prod);
-        $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$request->id,'stock'=>$prod['stock'],'rebaje'=>0,
-        'movimiento'=>false, 'created_at'=>$prod['created_at']);
-        Rebaje::insert($rebaje);
-        return redirect('/inventario');
+        try {
+            $prod = $request->except('_token','id');
+            Producto::where('id',$request->id)->update($prod);
+            $rebaje = array('id_inven'=>$prod['id_inven'],'id_prod'=>$request->id,'stock'=>$prod['stock'],'rebaje'=>0,
+            'movimiento'=>false, 'created_at'=>$prod['created_at']);
+            Rebaje::insert($rebaje);
+            return $this->baseUpdate('m1',$request->id);
+        } catch (QueryException) {
+            return $this->baseUpdate('m2',$request->id);
+        }
     }
     public function edit($id)
     {
@@ -70,14 +74,18 @@ class ProdController extends Controller
         $fecha = Carbon::now("America/Santiago");
         $prod = Producto::find($id);
         $stock = $prod->stock - $prod->stock_actual; 
-        return view('producto.edit',['id_inven'=>$id_inven,'pr'=>$prod,'fecha'=>$fecha,'stock'=>$stock]);
+        return view('producto.edit',['id_inven'=>$id_inven,'pr'=>$prod,'fecha'=>$fecha,'stock'=>$stock,'prod_exi'=>'no']);
     }
 
     public function delete($id)
     {
-        Producto::destroy($id);
-        Rebaje::where('id_prod',$id)->delete();
-        return redirect('/inventario');
+        try {
+            Producto::destroy($id);
+            Rebaje::where('id_prod',$id)->delete();
+            return $this->base('m3');
+        } catch (QueryException) {
+            return $this->base('m4');
+        }
     }
 
     public function data(Request $request)
@@ -102,5 +110,16 @@ class ProdController extends Controller
         $fecha = Carbon::now("America/Santiago");
         $prod = Producto::all()->where('id_inven',(int)$id_inven[0]->id);
         return view('producto.prod',['id_inven'=>$id_inven,'prod'=>$prod,'fecha'=>$fecha,'stock'=>'','prod_exi'=>$mensaje])->with('cont',$cont);
+    }
+
+    public function baseUpdate($mensaje,$id)
+    {
+        $id_inven = inventario::select('id')
+        ->where('id_user',(int)auth()->user()->id)
+        ->get();
+        $fecha = Carbon::now("America/Santiago");
+        $prod = Producto::find($id);
+        $stock = $prod->stock - $prod->stock_actual; 
+        return view('producto.edit',['id_inven'=>$id_inven,'pr'=>$prod,'fecha'=>$fecha,'stock'=>$stock,'prod_exi'=>$mensaje]);
     }
 }

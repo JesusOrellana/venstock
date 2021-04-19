@@ -63,10 +63,27 @@ function validarForm()
         return false;
     }
 }
+function validarFormUp()
+{
+    stock = document.getElementById("stock").value;
+    var exr = new RegExp("^[0-9,$]");
+    if(stock == "")
+    {
+        mensajeError("debe ingresar un stock de producto");
+        document.getElementById("stock").focus();
+        return false;
+    }
+    else if(!exr.test(stock))
+    {
+        mensajeError("solo puede ingresar numeros en el stock");
+        document.getElementById("stock").focus();
+        return false;
+    }
 
+}
 function mensajeError(mensaje)
 {
-    toastr.error(mensaje,"¡ERROR!",{
+    toastr.warning(mensaje,"¡ERROR!",{
         "closeButton": true,
         "debug": false,
         "newestOnTop": true,

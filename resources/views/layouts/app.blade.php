@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/b48ddbb3b7.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
 </head>
 <body>
     <div class = "body-base">

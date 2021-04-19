@@ -46,7 +46,7 @@
                                     <label class="col-12 bg-warning">¡No cuenta con stock disponible para hacer Rebaje
                                         a este producto!
                                     </label>
-                                    <form action = "{{ route('stock_update')}}" method ="post" >
+                                    <form action = "{{ route('stock_update')}}" method ="post" onSubmit="return validarFormUp()" enctype = "multipart/form-data">
                                         @csrf
                                         <div class="modal-body">
                                             <div class="form-group">
@@ -92,4 +92,7 @@
             @endforeach
        </div>
     @endif
+@endsection
+@section('script')
+    <script src="{{asset('js/prod.js')}}"></script>
 @endsection

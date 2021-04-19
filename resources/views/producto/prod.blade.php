@@ -121,7 +121,47 @@
     </script>
     @elseif($prod_exi == "m2")
     <script>
-        toastr.error("debe llenar los campos solicitados","¡ERROR!",{
+        toastr.error("lo sentimos algo ha salido mal en el ingreso del producto","¡ERROR!",{
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        });
+    </script>
+    @elseif($prod_exi == "m3")
+    <script>
+        toastr.success("Producto eliminado del inventario","¡EXITO!",{
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        });
+    </script>
+    @elseif($prod_exi == "m4")
+    <script>
+        toastr.error("lo sentimos algo ha salido no se pudo eliminar el producto","¡ERROR!",{
         "closeButton": true,
         "debug": false,
         "newestOnTop": true,
