@@ -32,7 +32,7 @@ class HomeController extends Controller
         ->orderByDesc('stock_actual')
         ->get();
         $fecha = Carbon::now("America/Santiago");
-        return view('venstock.home',['prod'=>$prod,'fecha'=>$fecha])->with('cont',$cont);
+        return view('venstock.home',['prod'=>$prod,'fecha'=>$fecha,'prod_exi'=>'sin mensaje'])->with('cont',$cont);
     }
 
     public function create(Request $request)

@@ -21,7 +21,7 @@
                         <div class="progress">
                             <div class="progress-bar bg-success" role="progressbar" style="width:{{($pr->stock_actual / $pr->stock)*100}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{round(($pr->stock_actual / $pr->stock)*100)}}%</div>
                         </div>
-                        <div class="card-header"><b>{{$pr->nombre}}</b></div>
+                        <div class="card-header"><p><b>{{$pr->nombre}}</b></p></div>
                         <div class="card-body">
                             <p class="card-text">Stock: {{$pr->stock - $pr->stock_actual }}</p>
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-{{$pr->id}}">
@@ -95,4 +95,85 @@
 @endsection
 @section('script')
     <script src="{{asset('js/prod.js')}}"></script>
+    @if($prod_exi == "m1")
+    <script>
+        toastr.success("Se ha hecho el rabeje correctamente","¡EXITO!",{
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        });
+    </script>
+    @elseif($prod_exi == "m2")
+    <script>
+        toastr.error("lo sentimos algo ha salido mal en el rebaje del producto","¡ERROR!",{
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        });
+    </script>
+    @elseif($prod_exi == "m3")
+    <script>
+        toastr.success("Producto actualizado correctamente","¡EXITO!",{
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        });
+    </script>
+    @elseif($prod_exi == "m4")
+    <script>
+        toastr.error("lo sentimos algo ha salido no se pudo actualizar el stock del producto","¡ERROR!",{
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-bottom-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        });
+    </script>
+    @endif
 @endsection

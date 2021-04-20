@@ -16,7 +16,8 @@ $(document).ready(function(){
             stock.push(lista[index].stock_actual);
         }
         generarGrafico();
-        generarGraficoRadar();
+        generarGraficoCir();
+        generarGraficoLine();
     })
 
     function generarGrafico(){
@@ -58,7 +59,7 @@ $(document).ready(function(){
 
     }
 
-    function generarGraficoRadar()
+    function generarGraficoCir()
     {
         var ctx = document.getElementById('myChartRadar').getContext('2d');
         var myChart = new Chart(ctx, {
@@ -78,5 +79,30 @@ $(document).ready(function(){
             }]
           }
     });
+    }
+
+    function generarGraficoLine()
+    {
+        var ctx = document.getElementById('myChartLine').getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['lun','ma','mi','ju','vi','sa','do'],
+          datasets: [{
+            label: ['My First Dataset','otra'],
+            data: [[65, 59, 80, 81, 56, 55, 40],
+                [12,65,70,10,40,77]],
+            fill: false,
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(75, 192, 192)',
+                'rgb(255, 205, 86)',
+                'rgb(201, 203, 207)',
+                'rgb(54, 162, 235)'
+              ],
+            tension: 0.1
+          }]
+        }
+        });
     }
 })

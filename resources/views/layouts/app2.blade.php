@@ -71,7 +71,7 @@
                     <a id="op-a" href="{{route('graficos')}}">Estadisticas</a>
                 </div>
                 <div class="m-opcion">
-                    <a id="op-a" href="">Ventas</a>
+                    <a id="op-a" href="#">Ventas</a>
                 </div>
             </section>
             <section class = "cont-rigth">

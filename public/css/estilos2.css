@@ -135,9 +135,8 @@ h2 svg , .bt-sv svg
 .prod-uni
 {
     width: 49%;
-    height: auto;
+    height: 250px;
     display: inline-block;
-    padding: 10px;
     margin-bottom: 20px;
     border: solid 1px black;
 }
@@ -146,6 +145,11 @@ h2 svg , .bt-sv svg
     display: inline-block;
     position: relative;
     top: 50px;
+}
+.card-header p
+{
+    width: 100%;
+    height: 60px;
 }
 .pb-re
 {
