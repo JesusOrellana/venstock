@@ -11,15 +11,15 @@ header
 {
     position: relative;
     width: 100%;
-    height: 800px;
+    height: 100%;
 
 }
-.body-base img
+.body-base video
 {
     position: absolute;
     object-fit: cover;
     width: 100%;
-    height: 100%;
+    height: 800px;
     z-index: -1;
 }
 .nav-izq
@@ -35,6 +35,11 @@ header
 .nav-der button
 {
     float: right;
+}
+.navbar-collapse a
+{
+    color: white;
+    text-decoration: none;
 }
 .logo
 {
@@ -57,19 +62,29 @@ nav .collapse
     font-family: 'Orelega One', cursive;
     padding-left: 10px;
 }
+#nav-pc
+{
+    display: none;
+}
 /*estilos section*/
 section
 {
     font-family: 'Oswald', sans-serif;
     width: 100%;
-    height: auto;
+    height: 100%;
+}
+.sec-center
+{
+    width: 100%;
+    height: 100%;
 }
 .titulo
 {
     width: 100%;
     height: auto;
     padding: 20px;
-    text-align: left;
+    text-align: center;
+    color: white;
 }
 .text-des
 {
@@ -82,8 +97,7 @@ section
     width: 100%;
     padding:30px;
     height:400px;
-    color: white;
-    text-align: left;
+    text-align: center;
     font-size: 1.2em;
     background:white;
     color: black;
@@ -113,7 +127,7 @@ section
     height: auto;
     display: inline-block;
     margin-bottom: 20px;
-    background: white;
+    background: #FAFAFA;
     padding: 10px;
     border-radius: 10px;
     border: solid black 1px;
@@ -190,8 +204,6 @@ footer
         width: 60%;
         font-size: 1.3em;
         background:none;
-        text-align: justify;
-        float: left;
     }
     .d-izq p
     {
@@ -222,9 +234,9 @@ footer
     {
         padding-top: 50px;
         width: 50%;
-        font-size: 2.2em;
+        font-size: 2em;
         color: black;
-        float: left;
+        height: 200px;
     }
     .titulo
     {
@@ -277,5 +289,17 @@ footer
         height: 230px;
         margin-bottom: 0;
         padding:10px;
+    }
+    footer
+    {
+        height: 220px;
+    }
+    #nav-pc
+    {
+        display: block;
+    }
+    #nav-movil
+    {
+        display: none;
     }
 }

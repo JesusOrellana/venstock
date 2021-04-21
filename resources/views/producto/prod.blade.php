@@ -2,7 +2,6 @@
 
 @section('content')
 
-    <p>Tiene {{$cont}} productos registrados en el inventario {{$id_inven[0]->id}}</p>
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
@@ -95,7 +94,6 @@
             </div>
         </div>
     </div>
-    {{$prod_exi}}
 @endsection
 @section('script')
     <script src="{{asset('js/prod.js')}}"></script>

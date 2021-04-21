@@ -5,7 +5,7 @@
     <div class="titulo">
         <h2>
             <strong>
-                Gestiona el stock de tus ventas de manera simple y eficaz.
+                Gestiona el stock de tu tienda de manera simple y eficaz.
             </strong> 
         </h2>
     </div>
