@@ -7,6 +7,7 @@ use App\Models\Producto;
 use App\Models\inventario;
 use Illuminate\Database\QueryException;
 use App\Models\Rebaje;
+use Illuminate\Support\Facades\DB;
 class ProdController extends Controller
 {
     public function __construct()
@@ -100,10 +101,13 @@ class ProdController extends Controller
        $id_inven = inventario::select('id')
        ->where('id_user',(int)auth()->user()->id)
        ->get();
-       $prod = Producto::select('nombre','stock_actual')
-       ->where('id_inven',$id_inven[0]->id)
-       ->orderByDesc('stock_actual')->take(6)->get();
-       return response(json_encode($prod),200)->header('content-type','text/plain');
+       $prod = Rebaje::selectRaw(DB::raw('count(id_inven) as numeroProd','id_prod'))
+       ->groupBy('id_prod')->get();
+       #->where('productos.id_inven',$id_inven[0]->id)
+       #->where('rebaje.movimiento','true')
+       #->sum('rebaje.rebaje')
+        return $prod;
+       #return response(json_encode($prod),200)->header('content-type','text/plain');
     }
 
     public function base($mensaje)

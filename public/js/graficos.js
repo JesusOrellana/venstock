@@ -13,8 +13,11 @@ $(document).ready(function(){
         var lista = JSON.parse(res);
         for (var index = 0; index < lista.length; index++) {
             nombres.push(lista[index].nombre);
-            stock.push(lista[index].stock_actual);
+            stock.push(lista[index].rebaje);
+
         }
+        alert(nombres);
+        alert(stock)
         generarGrafico();
         generarGraficoCir();
         generarGraficoLine();
@@ -74,7 +77,8 @@ $(document).ready(function(){
                 'rgb(75, 192, 192)',
                 'rgb(255, 205, 86)',
                 'rgb(201, 203, 207)',
-                'rgb(54, 162, 235)'
+                'rgb(54, 162, 235)',
+                'rgb(255, 162, 235)',
               ]
             }]
           }
@@ -83,7 +87,7 @@ $(document).ready(function(){
 
     function generarGraficoLine()
     {
-        var ctx = document.getElementById('myChartLine').getContext('2d');
+         ctx = document.getElementById('myChartLine').getContext('2d');
         var myChart = new Chart(ctx, {
         type: 'line',
         data: {

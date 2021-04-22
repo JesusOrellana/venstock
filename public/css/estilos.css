@@ -191,6 +191,11 @@ footer
     width: 100%;
     height:120px;
 }
+.log-access
+{
+    width: 100%;
+    height:100%;
+}
 /*estilos ajuste section */
 @media (min-width:500px)
 {
@@ -301,5 +306,15 @@ footer
     #nav-movil
     {
         display: none;
+    }
+    section
+    {
+        text-align:center;
+        width: 100%;
+    }
+    .log-access
+    {
+        display:inline-block;
+        width: 60%;
     }
 }

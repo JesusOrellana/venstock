@@ -30,3 +30,4 @@ Route::post('/producto/update', [ProdController::class, 'update'])->name('prod_u
 Route::get('/producto/{id}/delete', [ProdController::class, 'delete'])->name('prod_delete');
 Route::get('/producto/graficos', [HomeController::class, 'graficos'])->name('graficos');
 Route::post('/producto/data', [ProdController::class, 'data'])->name('prod_data');
+Route::get('/producto/data2', [ProdController::class, 'data'])->name('prod_data2');

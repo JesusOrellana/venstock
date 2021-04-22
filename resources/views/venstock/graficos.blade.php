@@ -19,20 +19,7 @@
                 <div class="graf-prod">
                     <canvas id="myChart" width="400" height="400"></canvas>  
                 </div> 
-            </div>
-        </div>
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Accordion Item #2
-            </button>
-            </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                    <div class="graf-prod">
-                        <canvas id="myChartLine" width="400" height="400"></canvas>  
-                    </div> 
-                </div>
+                <div id="menu-grafico"></div>
             </div>
         </div>
         <div class="accordion-item">
